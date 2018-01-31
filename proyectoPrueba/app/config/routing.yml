@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+#lucky/number:
+#    resource: '@AppBundle/Controller/LuckyController::numberAction'
+#    type: annotation
