@@ -25,8 +25,8 @@ class FormController extends Controller
 
         //Crea el formulario
         $form= $this->createFormBuilder($product)
-            ->add('Nombre: ',TextType::class)
-            ->add('Precio: ',NumberType::class)
+            ->add('name',TextType::class, array('label' => 'Nombre: '))
+            ->add('price',NumberType::class, array('label' => 'Precio: '))
             ->add('save', SubmitType::class, array('label' => 'Guardar'))
             ->getForm();
 
@@ -41,7 +41,8 @@ class FormController extends Controller
             $em->persist($product);
             $em->flush();
 
-            return $this->redirectToRoute('form_success');
+            //return $this->redirectToRoute('form_success');
+            return $response = $this->forward('@AppBundle\Controller\ListController::indexAction');
         }
 
         return $this->render('default/form.html.twig', array(
