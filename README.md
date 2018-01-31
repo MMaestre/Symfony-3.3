@@ -1,4 +1,5 @@
 # Testing Symfony 3.3
 
 **proyectoPrueba/** <br/>
-Pruebas básiucas siguiendo la documentación de _https://symfony.com/doc/3.4/_
+* Pruebas básicas siguiendo la documentación de https://symfony.com/doc/3.4/
+* Actualizado composer para que contenga el routing de Symfony y annotations de Doctrine 
