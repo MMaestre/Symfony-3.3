@@ -5,3 +5,7 @@ app:
 #lucky/number:
 #    resource: '@AppBundle/Controller/LuckyController::numberAction'
 #    type: annotation
+
+#/nuevo/producto:
+#    resource: '@AppBundle/Controller/FormController::newProductAction'
+#    type: annotation
