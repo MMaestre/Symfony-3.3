@@ -25,8 +25,8 @@ class FormController extends Controller
 
         //Crea el formulario
         $form= $this->createFormBuilder($product)
-            ->add('name',TextType::class)
-            ->add('price',NumberType::class)
+            ->add('Nombre: ',TextType::class)
+            ->add('Precio: ',NumberType::class)
             ->add('save', SubmitType::class, array('label' => 'Guardar'))
             ->getForm();
 
