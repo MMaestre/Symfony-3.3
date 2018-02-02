@@ -14,6 +14,7 @@ class IsInDBValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
+        //El problema está por aquí, no coge el Doctrine
         $result=$this->getDoctrine()->getManager()
             ->createQuery(
                 'SELECT *
