@@ -1,24 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MMaestre
- * Date: 2/02/18
- * Time: 9:51
- */
 
 namespace AppBundle\Validator\Constraints;
 
-use AppBundle\Entity\Product;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class AlreadyDBValidator extends ConstraintValidator
+/**
+ * @Annotation
+ */
+
+class IsInDBValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        $result=$this->getDoctrine()
-            ->getRepository(Product::class)
-            ->findByName($value);
+        $result=$this->getDoctrine()->getManager()
+            ->createQuery(
+                'SELECT *
+                FROM AppBundle:Product p
+                WHERE p.name = :name 
+                ORDER BY p.name ASC')
+            ->setParameter('name',$value)
+            ->getResult();
 
         if ($result) {
             $this->context->buildViolation($constraint->message)

@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use AppBundle\Validator\Constraints as AppAssert;
+use AppBundle\Validator\Constraints as MyAssert;
 
 /**
  * Product
@@ -29,22 +29,21 @@ class Product
      *
      * @ORM\Column(name="name", type="string", length=255)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Type("String")
-     * @AppAssert\AlredyDB()
-     *
+     * @MyAssert\IsInDB
      */
-    private $name;
+    protected $name;
 
     /**
      * @var float
      *
      * @ORM\Column(name="price", type="float")
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Type("Float")
      */
-    private $price;
+    protected $price;
 
 
     /**
