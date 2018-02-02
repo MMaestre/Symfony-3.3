@@ -1,6 +1,7 @@
 {
     "require": {
         "symfony/routing": "^4.0",
-        "doctrine/annotations": "^1.6"
+        "doctrine/annotations": "^1.6",
+        "symfony/validator": "^4.0"
     }
 }
