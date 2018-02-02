@@ -41,8 +41,8 @@ class FormController extends Controller
             $em->persist($product);
             $em->flush();
 
-            //return $this->redirectToRoute('form_success');
-            return $response = $this->forward('@AppBundle\Controller\ListController::indexAction');
+            //return $this->redirectToRoute('/lista/productos');
+            return $response = $this->forward('AppBundle\Controller\ListController::indexAction',array());
         }
 
         return $this->render('default/form.html.twig', array(

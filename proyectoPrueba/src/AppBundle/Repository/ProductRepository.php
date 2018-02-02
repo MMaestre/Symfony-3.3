@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByName($value)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT *
+                FROM AppBundle:Product p
+                WHERE p.name = :name 
+                ORDER BY p.name ASC')
+            ->setParameter('name',$value)
+            ->getResult();
+    }
 }

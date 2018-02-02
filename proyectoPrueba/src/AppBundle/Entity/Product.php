@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Validator\Constraints as AppAssert;
 
 /**
  * Product
@@ -30,6 +31,8 @@ class Product
      *
      * @Assert\NotBlank()
      * @Assert\Type("String")
+     * @AppAssert\AlredyDB()
+     *
      */
     private $name;
 

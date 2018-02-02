@@ -15,6 +15,9 @@ security:
 
         main:
             anonymous: ~
+            # default_target_path: /lista/productos
+            # always_use_default_target_path: true
+
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
