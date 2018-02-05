@@ -20,3 +20,8 @@ proyectoPrueba
 * Validación de los datos
   * Validación de los datos en las entidades @Assert 
   * Creación de validaciones propias -> IsInDBValidator
+  
+**February 5, 2018, 16:14 pm.** <br/>
+* Formularios
+  * Creación y uso de validaciones propias -> IsInDBValidator
+  * Renderización personalizada de formulario y errores -> form/fields.html.twig && default/form.html.twig
