@@ -2,6 +2,8 @@
 
 namespace AppBundle\Validator\Constraints;
 
+use AppBundle\Entity\Product;
+use AppBundle\Repository\ProductRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -12,17 +14,17 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class IsInDBValidator extends ConstraintValidator
 {
+    private $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function validate($value, Constraint $constraint)
     {
         //El problema está por aquí, no coge el Doctrine
-        $result=$this->getDoctrine()->getManager()
-            ->createQuery(
-                'SELECT *
-                FROM AppBundle:Product p
-                WHERE p.name = :name 
-                ORDER BY p.name ASC')
-            ->setParameter('name',$value)
-            ->getResult();
+        $result=$this->em->getRepository(Product::class)->findBy(array('name'=>$value));
 
         if ($result) {
             $this->context->buildViolation($constraint->message)
